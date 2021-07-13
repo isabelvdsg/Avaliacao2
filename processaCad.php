@@ -1,9 +1,10 @@
 <?php
     $server = "localhost";
-    $username = "root";
+    $username = "ivsg";
     $password = "";
     $database = "si_pweb";
     
+
     $connection = new mysqli($server, $username, $password, $database);
     
     if($connection->connect_error){
@@ -26,6 +27,8 @@
         }
     }
 
+    //Conexao PDO
+
     try {
     $conn = new PDO('mysql:host=localhost;dbname=si_pweb', $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -46,5 +49,18 @@
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
     }
+
+    //Senha criptografada
+
+    $str = '123456';
+
+    if (md5($str) === 'e10adc3949ba59abbe56e057f20f883e') {
+        echo "A string '123456' foi convertida em 'e10adc3949ba59abbe56e057f20f883e'";
+        exit;
+    }
+
+    $senha = $_REQUEST['senha'
+
+    $senhaCriptografada = md5($senha);
 
 ?>
