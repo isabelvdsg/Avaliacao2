@@ -86,44 +86,6 @@
 
 
 
-    $array = mysql_fetch_array($select);
-    $cadarray = $array['user'];
-    $array = mysql_fetch_array($select);
-    $emailarray = $array['email'];
-
-    if($nomeDeUsuario == "" || $nomeDeUsuario == null){
-      echo"<script language='javascript' type='text/javascript'>
-      alert('O campo login deve ser preenchido');window.location.href='
-      cadastro.html';</script>";
-
-    }else{
-      if($cadarray == $nomeDeUsuario){
-
-        echo"<script language='javascript' type='text/javascript'>
-        alert('Esse nome de usuario já existe');window.location.href='
-        cadastro.html';</script>";
-        die();
-
-      }if($emailarray == $email){
-        echo"<script language='javascript' type='text/javascript'>
-        alert('Esse email já existe');window.location.href='
-        cadastro.html';</script>";
-        die();
-
-      }else{
-        $query = "INSERT INTO usuarios (nome_completo, nome_usuario, email, senha) VALUES ('$nomeCompleto','$nomeDeUsuario', '$email', '$senha')"
-        $insert = mysql_query($query,$connect);
-
-        if($insert){
-          echo"<script language='javascript' type='text/javascript'>
-          alert('Usuário cadastrado com sucesso!');window.location.
-          href='login.html'</script>";
-        }else{
-          echo"<script language='javascript' type='text/javascript'>
-          alert('Não foi possível cadastrar esse usuário');window.location
-          .href='cadastro.html'</script>";
-        }
-      }
-    }
+   
 
 ?>
