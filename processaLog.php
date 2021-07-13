@@ -7,7 +7,6 @@
         $ _SESSION [ "usuário" ] = $ usuário ;
         $ _SESSION [ "senha" ] = $ senha ;
         echo  "Usuário logado.";
-    <a  href = " exibir.php " > Exibir Usuário </ a> 
     }else {
         echo  "Acesso negado." ;
     }
