@@ -5,6 +5,13 @@
     $database = "si_pweb";
     
 
+    $str = '123456';
+
+    if (md5($str) === 'e10adc3949ba59abbe56e057f20f883e') {
+        echo "A string '123456' foi convertida em 'e10adc3949ba59abbe56e057f20f883e'";
+        exit;
+    }
+
     $connection = new mysqli($server, $username, $password, $database);
     
     if($connection->connect_error){
@@ -15,17 +22,43 @@
             $nomeCompleto = $_POST["name"];
             $nomeDeUsuario = $_POST["user"];
             $email = $_POST["email"];
-            $senha = $_POST["password"];
-            
+            $senha = MD5($_POST["password"]);
+            $array = mysql_fetch_array($select);
+            $cadarray = $array['user'];
+            $array = mysql_fetch_array($select);
+            $emailarray = $array['email'];
     
-            $sql = "INSERT INTO usuarios (nome_completo, nome_usuario, email, senha) VALUES ('$nomeCompleto','$nomeDeUsuario', '$email', '$senha')";
-            if($connection->query($sql)){
-                echo "Usuário inserido com sucesso.";
-            } else {
-                echo "Erro ".$sql." ".$connection->error;
-            }
+            if($nomeDeUsuario == "" || $nomeDeUsuario == null){
+               echo"<script language='javascript' type='text/javascript'>
+               alert('O campo login deve ser preenchido');window.location.href='
+               cadastro.html';</script>";
+
+            //Verificando se nome de usuario e email ja foram inseridos
+
+            }else{
+               if($cadarray == $nomeDeUsuario){
+
+                  echo"<script language='javascript' type='text/javascript'>
+                  alert('Esse nome de usuario já existe');window.location.href='
+                  cadastro.html';</script>";
+                  die();
+
+            }if($emailarray == $email){
+                  echo"<script language='javascript' type='text/javascript'>
+                  alert('Esse email já existe');window.location.href='
+                  cadastro.html';</script>";
+                  die();
+
+            }else{
+              $sql = "INSERT INTO usuarios (nome_completo, nome_usuario, email, senha) VALUES ('$nomeCompleto','$nomeDeUsuario', '$email', '$senha')";
+              if($connection->query($sql)){
+                 echo "Usuário inserido com sucesso.";
+              } else {
+                 echo "Erro ".$sql." ".$connection->error;
+              }
         }
     }
+
 
     //Conexao PDO
 
@@ -50,17 +83,47 @@
         echo 'ERROR: ' . $e->getMessage();
     }
 
-    //Senha criptografada
 
-    $str = '123456';
 
-    if (md5($str) === 'e10adc3949ba59abbe56e057f20f883e') {
-        echo "A string '123456' foi convertida em 'e10adc3949ba59abbe56e057f20f883e'";
-        exit;
+
+    $array = mysql_fetch_array($select);
+    $cadarray = $array['user'];
+    $array = mysql_fetch_array($select);
+    $emailarray = $array['email'];
+
+    if($nomeDeUsuario == "" || $nomeDeUsuario == null){
+      echo"<script language='javascript' type='text/javascript'>
+      alert('O campo login deve ser preenchido');window.location.href='
+      cadastro.html';</script>";
+
+    }else{
+      if($cadarray == $nomeDeUsuario){
+
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Esse nome de usuario já existe');window.location.href='
+        cadastro.html';</script>";
+        die();
+
+      }if($emailarray == $email){
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Esse email já existe');window.location.href='
+        cadastro.html';</script>";
+        die();
+
+      }else{
+        $query = "INSERT INTO usuarios (nome_completo, nome_usuario, email, senha) VALUES ('$nomeCompleto','$nomeDeUsuario', '$email', '$senha')"
+        $insert = mysql_query($query,$connect);
+
+        if($insert){
+          echo"<script language='javascript' type='text/javascript'>
+          alert('Usuário cadastrado com sucesso!');window.location.
+          href='login.html'</script>";
+        }else{
+          echo"<script language='javascript' type='text/javascript'>
+          alert('Não foi possível cadastrar esse usuário');window.location
+          .href='cadastro.html'</script>";
+        }
+      }
     }
-
-    $senha = $_REQUEST['senha'
-
-    $senhaCriptografada = md5($senha);
 
 ?>
