@@ -1,1 +1,13 @@
 
+< html >
+    < cabeça >
+        < meta  charset = " utf-8 " />
+    </ head >
+    < corpo >
+        < form  action = " processaLogin.php " method = " POST " >
+            Usuário: < entrada  tipo = " texto " nome =" usuário " /> < br >
+            Senha: < entrada  tipo = " password " nome =" password " /> < br >
+            < input  type = " submit " >
+        </ form >
+    </ body >
+</ html >
