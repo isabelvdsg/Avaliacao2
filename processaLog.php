@@ -7,6 +7,7 @@
         $ _SESSION [ "usuário" ] = $ usuário ;
         $ _SESSION [ "senha" ] = $ senha ;
         echo  "Usuário logado.";
+        echo "Lista de usuarios cadastrados $sql = "SELECT * FROM usuarios;";
     }else {
         echo  "Acesso negado." ;
     }
