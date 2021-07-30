@@ -20,7 +20,7 @@
         $resultado_usuarios = mysqli_query($conn, $result_usuarios);
     
      while($rows_usuarios = mysqli_fetch_array($resultado_usuarios)){
-        echo "Nome do usuário: ".$rows_usuarios['nome']."<br>";
+        echo "Nome do usuário: ".$rows_usuarios['usuario']."<br>";
     }
     
 ?>
