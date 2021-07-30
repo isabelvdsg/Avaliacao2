@@ -3,7 +3,7 @@
     < head >
         < meta  charset = " utf-8 " />
     </ head >
-    < corpo >
+    < body >
         < form  action = " processaLogin.php " method = " POST " >
             Usuário: < entrada  tipo = " texto " nome =" usuário " /> < br >
             Senha: < entrada  tipo = " password " nome =" password " /> < br >
