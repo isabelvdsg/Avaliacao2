@@ -1,2 +1,2 @@
-# Exer1Pweb
-Questão 1 da lista de exercícios 1 de Pweb 2
+# Avaliação 2 de Pweb 2
+Questão da avaliação 2 de Pweb 2
