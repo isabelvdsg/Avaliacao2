@@ -22,7 +22,7 @@
             $nomeCompleto = $_POST["name"];
             $nomeDeUsuario = $_POST["user"];
             $email = $_POST["email"];
-            $senha = MD5($_POST["password"]); //senha criptografada
+            $senha = MD5($_POST["password"]); 
             $array = mysql_fetch_array($select);
             $cadarray = $array['user'];
             $array = mysql_fetch_array($select);
